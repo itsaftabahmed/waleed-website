@@ -1142,7 +1142,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="#top" class="logo">MUHAMMAD <span>WALEED</span></a>
     <div class="nav__links" id="navLinks">
       <a href="#services">Services</a>
-      <a href="#content">Content</a>
       <a href="#faq">FAQ</a>
     </div>
     <a href="#book" class="btn btn--red">Book a call</a>
@@ -1375,36 +1374,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ================= CONTENT / SHORTS ================= -->
-<section class="section" id="content">
-  <div class="wrap">
-    <div class="head">
-      <div><div class="kicker">Content</div><h2 class="h2">I share what's<br>working, as it happens</h2>
-        <a class="live-badge" href="https://www.youtube.com/@ItsAftab_Ahmed" target="_blank" rel="noopener"><i></i>Latest from my YouTube channel</a></div>
-      <div class="rail-ctrl">
-        <button type="button" id="prev" aria-label="Previous videos"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M14 8H2M7 3L2 8l5 5"/></svg></button>
-        <button type="button" id="next" aria-label="Next videos"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg></button>
-      </div>
-    </div>
-    <!-- Fallback cards; replaced by real videos from shorts.json (GitHub Action) or the live feed -->
-    <div class="rail" id="rail">
-      <a class="short" href="https://www.youtube.com/@ItsAftab_Ahmed/shorts" target="_blank" rel="noopener"><div class="short__thumb ph"><img src="https://iamaftabahmed.com/images/short-1.jpg" alt="" loading="lazy" decoding="async"><span class="short__platform">YouTube Shorts</span><span class="short__play"><svg width="16" height="18" viewBox="0 0 14 16" fill="#fff"><path d="M0 0L14 8L0 16Z"/></svg></span><span class="short__title">Watch my latest Shorts</span></div></a>
-      <a class="short" href="https://www.instagram.com/itsaftab.ahmed/" target="_blank" rel="noopener"><div class="short__thumb ph"><img src="https://iamaftabahmed.com/images/short-2.jpg" alt="" loading="lazy" decoding="async"><span class="short__platform">Instagram</span><span class="short__play"><svg width="16" height="18" viewBox="0 0 14 16" fill="#fff"><path d="M0 0L14 8L0 16Z"/></svg></span><span class="short__title">Follow along on Instagram</span></div></a>
-      <a class="short" href="https://www.tiktok.com/@itsaftab_ahmed" target="_blank" rel="noopener"><div class="short__thumb ph"><img src="https://iamaftabahmed.com/images/short-3.jpg" alt="" loading="lazy" decoding="async"><span class="short__platform">TikTok</span><span class="short__play"><svg width="16" height="18" viewBox="0 0 14 16" fill="#fff"><path d="M0 0L14 8L0 16Z"/></svg></span><span class="short__title">Follow along on TikTok</span></div></a>
-      <a class="short" href="https://www.youtube.com/@ItsAftab_Ahmed/shorts" target="_blank" rel="noopener"><div class="short__thumb ph"><img src="https://iamaftabahmed.com/images/short-4.jpg" alt="" loading="lazy" decoding="async"><span class="short__platform">YouTube Shorts</span><span class="short__play"><svg width="16" height="18" viewBox="0 0 14 16" fill="#fff"><path d="M0 0L14 8L0 16Z"/></svg></span><span class="short__title">Watch my latest Shorts</span></div></a>
-      <a class="short" href="https://www.instagram.com/itsaftab.ahmed/" target="_blank" rel="noopener"><div class="short__thumb ph"><img src="https://iamaftabahmed.com/images/short-5.jpg" alt="" loading="lazy" decoding="async"><span class="short__platform">Instagram</span><span class="short__play"><svg width="16" height="18" viewBox="0 0 14 16" fill="#fff"><path d="M0 0L14 8L0 16Z"/></svg></span><span class="short__title">Follow along on Instagram</span></div></a>
-      <a class="short" href="https://www.tiktok.com/@itsaftab_ahmed" target="_blank" rel="noopener"><div class="short__thumb ph"><img src="https://iamaftabahmed.com/images/short-6.jpg" alt="" loading="lazy" decoding="async"><span class="short__platform">TikTok</span><span class="short__play"><svg width="16" height="18" viewBox="0 0 14 16" fill="#fff"><path d="M0 0L14 8L0 16Z"/></svg></span><span class="short__title">Follow along on TikTok</span></div></a>
-    </div>
-    <div class="platforms">
-      <a class="btn btn--ghost" href="https://www.youtube.com/@ItsAftab_Ahmed" target="_blank" rel="noopener">YouTube</a>
-      <a class="btn btn--ghost" href="https://www.instagram.com/itsaftab.ahmed/" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn btn--ghost" href="https://www.tiktok.com/@itsaftab_ahmed" target="_blank" rel="noopener">TikTok</a>
-    </div>
-  </div>
-</section>
-
 <!-- ================= PROCESS ================= -->
-<section class="section" style="padding-top:0">
+<section class="section">
   <div class="wrap">
     <div class="head"><div><div class="kicker">How it works</div><h2 class="h2">From first call<br>to results</h2></div></div>
     <div class="steps">
@@ -1618,16 +1589,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     counts.forEach(c => io.observe(c));
   } else counts.forEach(run);
 
-  // Shorts carousel: buttons + drag to scroll
-  const rail = document.getElementById('rail');
-  const step = () => rail.querySelector('.short').offsetWidth + 20;
-  document.getElementById('prev').addEventListener('click', () => rail.scrollBy({left:-step(), behavior:'smooth'}));
-  document.getElementById('next').addEventListener('click', () => rail.scrollBy({left: step(), behavior:'smooth'}));
-  let down = false, sx = 0, sl = 0, moved = false;
-  rail.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = rail.scrollLeft; rail.style.scrollSnapType = 'none'; });
-  window.addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; if (Math.abs(dx) > 5) moved = true; rail.scrollLeft = sl - dx; });
-  window.addEventListener('pointerup', () => { if (!down) return; down = false; rail.style.scrollSnapType = ''; });
-  rail.addEventListener('click', e => { if (moved) { e.preventDefault(); moved = false; } }, true);
 
 
 
@@ -1726,99 +1687,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if ('ResizeObserver' in window) new ResizeObserver(draw).observe(svg); else addEventListener('resize', draw);
   })();
 
-  // ===== Latest Shorts from the YouTube channel (auto-updates) =====
-  (function(){
-    const rail = document.getElementById('rail'); if (!rail) return;
-    const CHANNEL_ID = 'UCp-p8QUUE8zWK78q9TtQYAg';   // @ItsAftab_Ahmed
-    const MAX = 10;
-    const feeds = [
-      {url:'https://www.youtube.com/feeds/videos.xml?playlist_id=UUSH' + CHANNEL_ID.slice(2), shorts:true},  // Shorts only
-      {url:'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID, shorts:false}                 // all uploads (fallback)
-    ];
-    const api = u => 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(u);
-    const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    const idOf = it => { const g = (it.guid || '').split(':').pop(); if (/^[\w-]{11}$/.test(g)) return g; const m = (it.link || '').match(/(?:v=|shorts\/)([\w-]{11})/); return m ? m[1] : null; };
-    const play = '<svg width="16" height="18" viewBox="0 0 14 16" fill="#fff"><path d="M0 0L14 8L0 16Z"/></svg>';
-
-    // modal player
-    const modal = document.createElement('div');
-    modal.className = 'ytm'; modal.hidden = true; modal.setAttribute('role', 'dialog'); modal.setAttribute('aria-modal', 'true'); modal.setAttribute('aria-label', 'Video player');
-    modal.innerHTML = '<div class="ytm__box"><button type="button" class="ytm__close" aria-label="Close video"><svg width="18" height="18" viewBox="0 0 18 18" stroke="#fff" stroke-width="2.2"><path d="M3 3l12 12M15 3L3 15"/></svg></button><iframe title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>';
-    document.body.appendChild(modal);
-    const box = modal.querySelector('.ytm__box'), frame = modal.querySelector('iframe'), closeBtn = modal.querySelector('.ytm__close');
-    let lastFocus = null;
-    const open = (id, isShort) => {
-      lastFocus = document.activeElement;
-      box.classList.toggle('wide', !isShort);
-      frame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
-      modal.hidden = false; requestAnimationFrame(() => modal.classList.add('open')); closeBtn.focus();
-    };
-    const close = () => { modal.classList.remove('open'); setTimeout(() => { modal.hidden = true; frame.src = ''; }, 300); if (lastFocus) lastFocus.focus(); };
-    closeBtn.addEventListener('click', close);
-    modal.addEventListener('click', e => { if (e.target === modal) close(); });
-    addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) close(); });
-
-    const proxies = [u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u), u => 'https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(u)];
-    const fromXml = txt => Array.from(new DOMParser().parseFromString(txt, 'text/xml').getElementsByTagName('entry')).map(e => {
-      const vid = e.getElementsByTagName('yt:videoId')[0] || e.getElementsByTagNameNS('*', 'videoId')[0];
-      const title = e.getElementsByTagName('title')[0];
-      return {guid:'yt:video:' + (vid ? vid.textContent : ''), title:title ? title.textContent : ''};
-    });
-    const load = async () => {
-      try {   // 1. list saved on this site by the "Update YouTube Shorts" GitHub Action (most reliable)
-        const r = await fetch('https://iamaftabahmed.com/shorts.json', {cache: 'no-cache'});
-        if (r.ok) { const j = await r.json(); if (j.items && j.items.length) return {items: j.items.map(v => ({guid: 'yt:video:' + v.id, title: v.title, thumb: v.thumb})), shorts: !!j.shorts}; }
-      } catch (e) {}
-      for (const f of feeds) {   // 2. live feed through public proxies (fallback)
-        try {
-          const r = await fetch(api(f.url));
-          if (r.ok) { const j = await r.json(); if (j.status === 'ok' && j.items && j.items.length) return {items:j.items, shorts:f.shorts}; }
-        } catch (e) {}
-        for (const px of proxies) {
-          try {
-            const r = await fetch(px(f.url)); if (!r.ok) continue;
-            const items = fromXml(await r.text());
-            if (items.length) return {items, shorts:f.shorts};
-          } catch (e) {}
-        }
-      }
-      return null;
-    };
-
-    const fill = () => load().then(res => {
-      if (!res) return;   // keep the fallback cards if the feed can't be reached
-      const cards = res.items.map(it => ({id:idOf(it), thumb:it.thumb, title:String(it.title || '').replace(/#\w+/g, '').replace(/\s+/g, ' ').trim()})).filter(v => v.id).slice(0, MAX);
-      if (!cards.length) return;
-      rail.innerHTML = cards.map(v => {
-        const href = res.shorts ? 'https://www.youtube.com/shorts/' + v.id : 'https://www.youtube.com/watch?v=' + v.id;
-        const thumb = v.thumb || 'https://i.ytimg.com/vi/' + v.id + '/maxresdefault.jpg';   // best size picked by the GitHub Action
-        return '<a class="short io in" href="' + href + '" data-yt="' + v.id + '" target="_blank" rel="noopener" aria-label="Watch: ' + esc(v.title) + '">' +
-          '<div class="short__thumb"><img src="' + thumb + '" alt="" loading="lazy" referrerpolicy="no-referrer">' +
-          '<span class="short__platform">' + (res.shorts ? 'YouTube Shorts' : 'YouTube') + '</span>' +
-          '<span class="short__play">' + play + '</span><span class="short__title">' + esc(v.title) + '</span></div></a>';
-      }).join('');
-      const next = img => {   // fall back to smaller sizes if a thumbnail is missing (YouTube serves a 120px grey image for missing ones)
-        const order = ['oardefault', 'maxresdefault', 'hq720', 'sddefault', 'hqdefault'];
-        const m = img.src.match(/\/(\w+)\.jpg$/); const i = m ? order.indexOf(m[1]) : -1;
-        if (i > -1 && i < order.length - 1) img.src = img.src.replace(/\/\w+\.jpg$/, '/' + order[i + 1] + '.jpg'); else img.style.display = 'none';
-      };
-      rail.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', () => next(img));
-        img.addEventListener('load', () => { if (img.naturalWidth <= 120) next(img); });
-      });
-      rail.scrollLeft = 0;
-    });
-    if ('IntersectionObserver' in window) {
-      const fo = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { fo.disconnect(); fill(); } }, {rootMargin:'1200px 0px'});
-      fo.observe(rail);
-    } else fill();
-
-    // play inside the page instead of leaving the site (drag-scroll clicks are ignored)
-    rail.addEventListener('click', e => {
-      const a = e.target.closest('a[data-yt]'); if (!a || e.defaultPrevented) return;
-      e.preventDefault(); open(a.dataset.yt, a.href.indexOf('/shorts/') !== -1);
-    });
-  })();
 
   // ===== More motion =====
   // split section headings into words (keeps <br> and <em>)
